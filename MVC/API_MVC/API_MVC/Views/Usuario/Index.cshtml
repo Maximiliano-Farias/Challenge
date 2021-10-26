@@ -1,0 +1,64 @@
+﻿@{
+    IEnumerable<API_MVC.Models.Usuario> listaUsuarios = ViewData["listaUsuarios"] as IEnumerable<API_MVC.Models.Usuario>;
+    ViewData["Title"] = "Administracion de usuarios";
+}
+
+<div style="text-align: center; ">
+    <h1 class="display-5">WEB MVC - ADMINISTRACIÓN DE USUARIOS</h1>
+</div>
+
+@if (listaUsuarios == null)
+{
+    <div style="text-align: center; margin-top: 10rem; ">
+        <h4 class="display-5">ERROR AL CONECTAR CON API</h4>
+    </div>
+}
+else
+{
+    @if (listaUsuarios?.Count() == 0)
+    {
+        <div style="text-align: center; margin-top: 10rem; ">
+            <h4 class="display-5">NO EXISTEN USUARIOS A LISTAR</h4>
+        </div>
+    }
+    else
+    {
+        <table style=" text-align:center" class="table  table-striped">
+            <thead>
+                <tr>
+                    <th>USUARIO</th>
+                    <th>NOMBRE</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in listaUsuarios)
+                {
+                    <tr>
+                        <td>@usuario.UserName</td>
+                        <td>@usuario.Nombre</td>
+                        <td>@usuario.Email</td>
+                        <td>@usuario.Telefono</td>
+                        <td>
+                            <div style="text-align:center">
+                                <a href='@Url.Action("EditCreate", "Usuario", new { idUser = usuario.IdUsuario})'><button class="btn btn-primary" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div style="text-align:center">
+                                <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true" onclick="DeleteUser(@usuario.IdUsuario)"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+
+

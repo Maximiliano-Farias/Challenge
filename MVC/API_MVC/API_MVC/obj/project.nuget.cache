@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "JfWQJ5Df8m/+PpxrWwdZq549ZEqoV7lrn3Hu0ikBpEMMVIYCB2G3MrrYOnFlRJiGby+nbWSiZo5EEDuSB3yMzw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MAXI\\OneDrive\\Escritorio\\Challenge\\MVC\\API_MVC\\API_MVC\\API_MVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MAXI\\.nuget\\packages\\font.awesome\\5.15.4\\font.awesome.5.15.4.nupkg.sha512",
+    "C:\\Users\\MAXI\\.nuget\\packages\\jquery.typescript.definitelytyped\\3.1.2\\jquery.typescript.definitelytyped.3.1.2.nupkg.sha512",
+    "C:\\Users\\MAXI\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

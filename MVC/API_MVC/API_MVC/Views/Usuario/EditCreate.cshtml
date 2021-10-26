@@ -1,0 +1,63 @@
+﻿@{
+    API_MVC.Models.Usuario usuario = ViewData["usuario"] as API_MVC.Models.Usuario;
+    ViewData["Title"] = "Datos usuario";
+}
+
+<div style="text-align: center;">
+    <h1 class="display-10"></h1>
+</div>
+@if (usuario == null)
+{
+    <div style="text-align: center; margin-top: 10rem; ">
+        <h4 class="display-5">ERROR AL CONECTAR CON API</h4>
+    </div>
+}
+
+
+else
+{
+    <div id="divUserDates">
+        <table class="table  table-striped" style=" width: 50% ; margin-top:inherit">
+            <thead>
+                <tr>
+                    <th colspan="5" style="text-align: center; font-size: 25px;">Edición de usuarios </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a class="textoDato">*Nombre de usuario: </a></td>
+                    <td> <input type"text" id="userName" class="dato" maxlength="10" size="10" value="@usuario?.UserName" placeholder="username..." /></td>
+                </tr>
+                <tr>
+                    <td><a class="textoDato">*Nombre :</a> </td>
+                    <td> <input type"text" id="nombre" class="dato" maxlength="100" size="30" value="@usuario?.Nombre" placeholder="Name..." /> </td>
+                </tr>
+                <tr>
+                    <td><a class="textoDato">*Email : </a></td>
+                    <td> <input type="email" id="email" class="dato" maxlength="100" size="30" value="@usuario?.Email" placeholder="Email..." /><span id="emailCorrecto"></span> </td>
+                </tr>
+                <tr>
+                    <td><a class="textoDato">Telefono : </a></td>
+                    <td> <input type="text" id="telefono" class="dato" maxlength="20" size="30" value="@usuario?.Telefono" placeholder="Phone..." onkeypress="return isNumberKey(event)" /> </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align:center">
+        @if (usuario.IdUsuario != 0)
+        {
+            <button class="btn btn-primary guardaBttn" id="guardarBtn">Guardar Cambios </button>
+        }
+        else
+        {
+            <button class="btn btn-primary guardaBttn" id="guardarBtn">Crear Usuario </button>
+        }
+        <button id="cancelBtn" onclick="goIndex()" class="btn btn-secondary guardaBttn">Cancelar </button>
+    </div>
+
+    <input type="hidden" id="idUser" name="idUser" value="@usuario.IdUsuario" />
+}
+
+
+
